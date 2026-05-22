@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Estilos para el contenido Markdown del Bot */
+.prose {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.prose p {
+  margin-bottom: 1rem;
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+.prose strong {
+  font-weight: 700;
+}
+
+.prose h1, .prose h2, .prose h3 {
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: inherit;
+}
+
+.prose h3 { font-size: 1.1rem; }
+
+.prose ul, .prose ol {
+  margin-bottom: 1rem;
+  padding-left: 1.25rem;
+}
+
+.prose li {
+  margin-bottom: 0.25rem;
+}
+
+/* Tablas con estilo Zephira */
+.prose table {
+  width: 100%;
+  min-width: 500px; /* Asegura que la tabla no se colapse demasiado */
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.875rem;
+  background: white;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.prose th {
+  background: #f1f5f9;
+  padding: 0.875rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #334155;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.prose td {
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid #f1f5f9;
+  color: #475569;
+}
+
+.prose tr:last-child td {
+  border-bottom: none;
+}
+
+.prose tr:hover td {
+  background: #f8fafc;
+}
+
+/* Scrollbars personalizados */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #cbd5e1;
+}
+
+.custom-scrollbar-horizontal::-webkit-scrollbar {
+  height: 6px;
+}
+
+.custom-scrollbar-horizontal::-webkit-scrollbar-track {
+  background: #f8fafc;
+  border-radius: 0 0 2rem 0;
+}
+
+.custom-scrollbar-horizontal::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 10px;
+}
+
+/* Ajustes para el modo invertido (mensajes del usuario) */
+.prose-invert {
+  color: white;
+}
+
+.prose-invert strong {
+  color: white;
+}
+
+.prose-invert table {
+  background: rgba(255,255,255,0.1);
+}
+
+.prose-invert th {
+  background: rgba(255,255,255,0.05);
+  border-bottom-color: rgba(255,255,255,0.2);
+}
+
+.prose-invert td {
+  border-bottom-color: rgba(255,255,255,0.1);
+}
