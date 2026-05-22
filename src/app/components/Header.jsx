@@ -1,20 +1,39 @@
+"use client";
+
 import React from 'react'
-import { Shield, LogOut } from "lucide-react";
+import { Shield, LogOut, Zap } from "lucide-react";
 import Button from "../ui/button";
 
 export default function Header() {
+  const handleQuickExit = () => {
+    // Abrir una nueva ventana con contenido neutral (ej: Google o Noticias)
+    window.open('https://www.google.com', '_blank', 'noopener,noreferrer');
+    
+    // Disparar el evento de pánico para activar el PanicOverlay en la ventana actual
+    const event = new CustomEvent('zephira-panic', { detail: 'trigger-panic' });
+    window.dispatchEvent(event);
+  };
+
   return (
-    <header className="bg-white/90 backdrop-blur-sm border-b border-gray-200/50 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <Shield className="w-6 h-6 text-[#8b7fa8]" />
-            <span className="text-gray-800 font-medium">Zephira</span>
+    <header className="bg-white/95 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 py-3 flex justify-between items-center">
+          <div className="flex items-center gap-2.5">
+            <div className="p-2 bg-[#8b7fa8]/10 rounded-xl">
+              <Shield className="w-6 h-6 text-[#8b7fa8]" />
+            </div>
+            <span className="text-slate-800 font-bold text-xl tracking-tight">Zephira</span>
           </div>
-          <Button 
-            variant="ghost" 
-            icon={LogOut} 
-            title="Salir Rápido" 
-          />
+          
+          <div className="flex items-center gap-4">
+            <button 
+              onClick={handleQuickExit}
+              className="group flex items-center gap-2 px-5 py-2.5 bg-[#d97373] hover:bg-[#c96565] text-white rounded-full font-bold text-sm transition-all shadow-lg shadow-red-200 active:scale-95 animate-pulse hover:animate-none"
+            >
+              <LogOut className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
+              <span>SALIR RÁPIDO</span>
+              <div className="hidden md:block ml-2 px-2 py-0.5 bg-white/20 rounded text-[10px] font-medium uppercase">Esc</div>
+            </button>
+          </div>
         </div>
       </header>
   )
