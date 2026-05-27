@@ -39,6 +39,20 @@ export default function Card({
       actionText: 'text-[#d97373]',
       border: 'hover:border-[#d97373]/30',
       emergencyBg: 'bg-[#d97373] text-white'
+    },
+    lightRed: {
+      iconBg: 'bg-[#fdf2f2] group-hover:bg-[#d97373]/10',
+      iconText: 'text-[#d97373]',
+      actionText: 'text-[#d97373]',
+      border: 'hover:border-[#d97373]/30',
+      emergencyBg: 'bg-[#d97373] text-white'
+    },
+    lightBlue: {
+      iconBg: 'bg-[#e8f4f8] group-hover:bg-[#88b0c4]/10',
+      iconText: 'text-[#88b0c4]',
+      actionText: 'text-[#88b0c4]',
+      border: 'hover:border-[#88b0c4]/30',
+      emergencyBg: 'bg-[#88b0c4] text-white'
     }
   }
 
@@ -82,5 +96,14 @@ export default function Card({
         </span>
       )}
     </Component>
+  )
+}
+
+// Subcomponente para contenido extra
+Card.Content = function CardContent({ children, className = "" }) {
+  return (
+    <div className={`w-full mt-2 ${className}`}>
+      {children}
+    </div>
   )
 }

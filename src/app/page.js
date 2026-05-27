@@ -84,7 +84,7 @@ export default function Home() {
             title="Aprender sobre violencia"
             description="Información, señales de alerta y guías educativas"
             footer="Ver recursos"
-            onClick={() => console.log('Recursos')}
+        onClick={() => window.location.href = '/informacion'}
           />
 
           {/* Opción 2: Directorio */}
