@@ -9,10 +9,10 @@ export default function page() {
   return (
     <div className="min-h-screen bg-[#faf9fb]">
       <Header />
-        <section className="bg-white border-b border-gray-200/50 py-12">
+      <section className="bg-white border-b border-gray-200/50 py-12">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h1 className="mb-4 text-gray-800">Aprende sobre la violencia de género</h1>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <h1 className="text-4xl font-bold mb-4 text-gray-800">Aprende sobre la violencia de género</h1>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Conocer las señales de alerta y entender los tipos de violencia es el primer paso para protegerte o ayudar a alguien más
           </p>
         </div>
@@ -153,8 +153,8 @@ export default function page() {
       <section className="bg-white border-y border-gray-200/50 py-16">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="mb-4 text-gray-800">Señales de alerta</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">Si reconoces varias de estas señales, puede ser momento de buscar ayuda profesional o apoyo en tu círculo cercano.</p>
+            <h2 className="text-3xl font-bold mb-4 text-gray-800">Señales de alerta</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">Si reconoces varias de estas señales, puede ser momento de buscar ayuda profesional o apoyo en tu círculo cercano.</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">

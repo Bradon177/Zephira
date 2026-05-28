@@ -3,6 +3,7 @@
 import React from 'react'
 import { Shield, LogOut, Zap } from "lucide-react";
 import Button from "../ui/button";
+import Link from "next/link";
 
 export default function Header() {
   const handleQuickExit = () => {
@@ -17,12 +18,12 @@ export default function Header() {
   return (
     <header className="bg-white/95 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-3 flex justify-between items-center">
-          <div className="flex items-center gap-2.5">
+          <Link href="/" className="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
             <div className="p-2 bg-[#8b7fa8]/10 rounded-xl">
               <Shield className="w-6 h-6 text-[#8b7fa8]" />
             </div>
             <span className="text-slate-800 font-bold text-xl tracking-tight">Zephira</span>
-          </div>
+          </Link>
           
           <div className="flex items-center gap-4">
             <button 

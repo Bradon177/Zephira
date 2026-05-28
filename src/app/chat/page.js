@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Button from '../ui/button';
-import { Send, Shield, Lock, MessageCircle, ArrowLeft, Loader2 } from 'lucide-react';
+import { Send, Shield, Lock, MessageCircle, ArrowLeft, Loader2, ArrowDown } from 'lucide-react';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -14,8 +14,10 @@ export default function ChatPage() {
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [showScrollButton, setShowScrollButton] = useState(false);
   const [sessionId] = useState(`session-${Date.now()}`);
   const messagesEndRef = useRef(null);
+  const scrollContainerRef = useRef(null);
 
   // Inicializar el primer mensaje solo en el cliente para evitar errores de hidratación
   useEffect(() => {
@@ -31,6 +33,15 @@ export default function ChatPage() {
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleScroll = () => {
+    if (scrollContainerRef.current) {
+      const { scrollTop, scrollHeight, clientHeight } = scrollContainerRef.current;
+      // Mostrar botón si el usuario se ha alejado más de 300px del fondo
+      const isNearBottom = scrollHeight - scrollTop - clientHeight < 300;
+      setShowScrollButton(!isNearBottom);
+    }
   };
 
   useEffect(() => {
@@ -109,8 +120,12 @@ export default function ChatPage() {
         </div>
 
         {/* Área de Mensajes */}
-        <div className="flex-1 overflow-y-auto min-h-0 py-6 custom-scrollbar scroll-smooth">
-          <div className="space-y-8 pb-32"> {/* Espacio extra al final para el input flotante */}
+        <div 
+          ref={scrollContainerRef}
+          onScroll={handleScroll}
+          className="flex-1 overflow-y-auto min-h-0 py-6 custom-scrollbar scroll-smooth"
+        >
+          <div className="space-y-8 pb-32 relative"> {/* Espacio extra al final para el input flotante */}
             {messages.map((message) => (
               <div 
                 key={message.id} 
@@ -155,6 +170,17 @@ export default function ChatPage() {
             )}
             <div ref={messagesEndRef} />
           </div>
+
+          {/* Botón flotante para bajar al final */}
+          {showScrollButton && (
+            <button
+              onClick={scrollToBottom}
+              className="fixed bottom-32 right-8 md:right-12 z-20 p-3 bg-white border border-gray-100 rounded-full shadow-xl text-[#8b7fa8] hover:bg-gray-50 transition-all duration-300 animate-in fade-in zoom-in slide-in-from-bottom-4"
+              aria-label="Ir al final"
+            >
+              <ArrowDown className="w-5 h-5" />
+            </button>
+          )}
         </div>
 
         {/* Input de Mensaje - Estilo ChatGPT (Flotante/Sticky) */}
