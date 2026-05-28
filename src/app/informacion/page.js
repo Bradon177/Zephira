@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import { Hand, MessageSquare, AlertTriangle, Eye } from 'lucide-react'
+import { Hand, MessageSquare, AlertTriangle, Eye, Heart, Users, ShieldAlert } from 'lucide-react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Card from '../ui/card'
@@ -110,55 +110,101 @@ export default function page() {
           <Card
           color="lightRed"
           icon={MessageSquare}
-          title="Violencia Psicológica"
-          description="Actos u omisiones que dañan la estabilidad emocional"
+          title="Violencia Verbal"
+          description="Uso de palabras ofensivas o agresivas para dañar emocionalmente a alguien."
           >
+            <Card.Content>
+              <div className="bg-[#faf9fb] p-4 rounded-lg">
+                <p className="text-sm text-gray-700 mb-2">Ejemplos:</p>
+                <ul className='text-sm text-gray-600 space-y-1'>
+                  <li>• Gritos constantes</li>
+                  <li>• Burlas y apodos ofencivos</li>
+                  <li>• Criticas destructivas</li>
+                  <li>• Comentarios para hacer sentir inferior</li>
+                </ul>
 
+              </div>
+            </Card.Content>
+
+          </Card>
+
+          <Card
+          color='purple'
+          icon={MessageSquare}
+          title="Violencia Intrafamiliar"
+          description="Cualquier tipo de violencia que ocurre dentro del hogar o núcleo familiar."
+          >
+            <Card.Content>
+              <div className="bg-[#faf9fb] p-4 rounded-lg">
+                <p className="text-sm text-gray-700 mb-2">Ejemplos:</p>
+                <ul className='text-sm text-gray-600 space-y-1'>
+                  <li>• Maltrato entre parejas</li>
+                  <li>• Castigos agresivos hacia hijos</li>
+                  <li>• Aislamiento de familia y amigos</li>
+                  <li>• Amenazas dentro del hogar</li>
+                </ul>
+              </div>
+            </Card.Content>
           </Card>
         </div>
       </section>
 
       {/* Señales de Alerta */}
-      <section className="bg-white border-y border-gray-200/50 py-12">
+      <section className="bg-white border-y border-gray-200/50 py-16">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="mb-8">
-            <h2 className="mb-3 text-gray-800">Señales de alerta</h2>
-            <p className="text-gray-600">Si reconoces varias de estas señales, puede ser momento de buscar ayuda</p>
+          <div className="text-center mb-12">
+            <h2 className="mb-4 text-gray-800">Señales de alerta</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">Si reconoces varias de estas señales, puede ser momento de buscar ayuda profesional o apoyo en tu círculo cercano.</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-4">
-            <div className="bg-[#faf9fb] p-5 rounded-xl border border-gray-200/50">
-              <h4 className="mb-3 text-gray-800">En la relación</h4>
-              <ul className="text-sm text-gray-600 space-y-2">
-                <li>✓ Te culpa por todo lo malo que pasa</li>
-                <li>✓ Controla tu teléfono, redes sociales o ubicación</li>
-                <li>✓ Te prohíbe ver a tu familia o amigos</li>
-                <li>✓ Toma decisiones por ti sin consultarte</li>
-                <li>✓ Te amenaza si hablas de separarte</li>
-              </ul>
-            </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            <Card 
+              color="purple"
+              icon={ShieldAlert}
+              title="En la relación"
+            >
+              <Card.Content>
+                <ul className="text-sm text-gray-600 space-y-3">
+                  <li className="flex gap-2"><span>✓</span> Te culpa por todo lo malo que pasa</li>
+                  <li className="flex gap-2"><span>✓</span> Controla tu teléfono, redes o ubicación</li>
+                  <li className="flex gap-2"><span>✓</span> Te prohíbe ver a tu familia o amigos</li>
+                  <li className="flex gap-2"><span>✓</span> Toma decisiones por ti sin consultarte</li>
+                  <li className="flex gap-2"><span>✓</span> Te amenaza si hablas de separarte</li>
+                </ul>
+              </Card.Content>
+            </Card>
 
-            <div className="bg-[#faf9fb] p-5 rounded-xl border border-gray-200/50">
-              <h4 className="mb-3 text-gray-800">Cómo te hace sentir</h4>
-              <ul className="text-sm text-gray-600 space-y-2">
-                <li>✓ Sientes miedo de hacer enojar a tu pareja</li>
-                <li>✓ Crees que "si cambias" todo mejorará</li>
-                <li>✓ Te sientes constantemente vigilada/o</li>
-                <li>✓ Has perdido confianza en ti misma/o</li>
-                <li>✓ Sientes que "nadie más te querría"</li>
-              </ul>
-            </div>
+            <Card 
+              color="red"
+              icon={Heart}
+              title="Cómo te hace sentir"
+            >
+              <Card.Content>
+                <ul className="text-sm text-gray-600 space-y-3">
+                  <li className="flex gap-2"><span>✓</span> Sientes miedo de hacer enojar a tu pareja</li>
+                  <li className="flex gap-2"><span>✓</span> Crees que "si cambias" todo mejorará</li>
+                  <li className="flex gap-2"><span>✓</span> Te sientes constantemente vigilada/o</li>
+                  <li className="flex gap-2"><span>✓</span> Has perdido confianza en ti misma/o</li>
+                  <li className="flex gap-2"><span>✓</span> Sientes que "nadie más te querría"</li>
+                </ul>
+              </Card.Content>
+            </Card>
 
-            <div className="bg-[#faf9fb] p-5 rounded-xl border border-gray-200/50">
-              <h4 className="mb-3 text-gray-800">Lo que otros notan</h4>
-              <ul className="text-sm text-gray-600 space-y-2">
-                <li>✓ Te has alejado de familia y amigos</li>
-                <li>✓ Justificas comportamientos abusivos</li>
-                <li>✓ Tienes marcas o lesiones inexplicadas</li>
-                <li>✓ Cambios en tu personalidad o estado de ánimo</li>
-                <li>✓ Evitas ciertos temas de conversación</li>
-              </ul>
-            </div>
+            <Card 
+              color="blue"
+              icon={Users}
+              title="Lo que otros notan"
+            >
+              <Card.Content>
+                <ul className="text-sm text-gray-600 space-y-3">
+                  <li className="flex gap-2"><span>✓</span> Te has alejado de familia y amigos</li>
+                  <li className="flex gap-2"><span>✓</span> Justificas comportamientos abusivos</li>
+                  <li className="flex gap-2"><span>✓</span> Tienes marcas o lesiones inexplicadas</li>
+                  <li className="flex gap-2"><span>✓</span> Cambios en tu personalidad o ánimo</li>
+                  <li className="flex gap-2"><span>✓</span> Evitas ciertos temas de conversación</li>
+                </ul>
+              </Card.Content>
+            </Card>
           </div>
         </div>
       </section>
