@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Button from '../ui/button';
-import { Send, Shield, Lock, MessageCircle, ArrowLeft, Loader2, ArrowDown } from 'lucide-react';
+import { Send, Lock, MessageCircle, ArrowLeft, Loader2, ArrowDown } from 'lucide-react';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -113,9 +113,11 @@ export default function ChatPage() {
               <span className="text-[10px] uppercase tracking-wider font-bold text-slate-400">Seguridad</span>
               <span className="text-[11px] text-[#8b7fa8] font-medium">Activa</span>
             </div>
-            <div className="p-2 bg-[#8b7fa8]/10 rounded-xl">
-              <Shield className="w-5 h-5 text-[#8b7fa8]" />
-            </div>
+            <img 
+              src="/logo.png" 
+              alt="Zephira Logo" 
+              className="h-10 w-auto object-contain" 
+            />
           </div>
         </div>
 
