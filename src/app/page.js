@@ -94,7 +94,7 @@ export default function Home() {
             title="Buscar ayuda cercana"
             description="centros de apoyo en tu área"
             footer="Ver mapa"
-            onClick={() => console.log('Mapa')}
+            onClick={() => window.location.href = '/ayuda-cercana'}
           />        
         </div>
       </section>
