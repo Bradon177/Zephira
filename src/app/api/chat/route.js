@@ -17,7 +17,7 @@ export async function POST(request) {
     const { message, sessionId } = body;
 
     const response = await fetch(n8nWebhookUrl, {
-      method: 'POST', // Cambiado de GET a POST según tu nueva configuración de n8n
+      method: 'POST', 
       headers: {
         'Content-Type': 'application/json',
       },

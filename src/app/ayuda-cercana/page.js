@@ -78,15 +78,22 @@ export default function AyudaCercanaPage() {
           </div>
         </div>
 
-        <div className="flex-1 flex flex-col md:flex-row min-h-[600px]">
-          <div className="w-full md:w-[350px] flex flex-col border-r border-gray-100 bg-white z-10">
+        <div className="flex-1 flex flex-col md:flex-row min-h-0 md:min-h-[600px]">
+          {/* Panel Izquierdo - Lista Simplificada */}
+          <div className="w-full md:w-[350px] h-[40vh] md:h-auto flex flex-col border-b md:border-b-0 md:border-r border-gray-100 bg-white z-10">
             <div className="flex-1 overflow-y-auto p-4 space-y-3 custom-scrollbar">
               {filteredLocations.map((loc) => (
                 <LocationCard 
                   key={loc.id}
                   location={loc}
                   isSelected={selectedLocation.id === loc.id}
-                  onClick={setSelectedLocation}
+                  onClick={(location) => {
+                    setSelectedLocation(location);
+                    // En móviles, hacer scroll suave hasta el mapa al seleccionar
+                    if (window.innerWidth < 768) {
+                      document.getElementById('map-viewport')?.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
                 />
               ))}
               {filteredLocations.length === 0 && (
@@ -97,7 +104,8 @@ export default function AyudaCercanaPage() {
             </div>
           </div>
 
-          <div className="flex-1 relative bg-[#f0f2f5] min-h-[500px]">
+          {/* Área del Mapa - Maximizado */}
+          <div id="map-viewport" className="flex-1 relative bg-[#f0f2f5] h-[60vh] md:h-auto min-h-[400px] md:min-h-[500px]">
             <iframe 
               src={selectedLocation.embedUrl}
               width="100%" 

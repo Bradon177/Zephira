@@ -175,32 +175,34 @@ export default function ChatPage() {
 
           {/* Botón flotante para bajar al final */}
           {showScrollButton && (
-            <button
-              onClick={scrollToBottom}
-              className="fixed bottom-32 right-8 md:right-12 z-20 p-3 bg-white border border-gray-100 rounded-full shadow-xl text-[#8b7fa8] hover:bg-gray-50 transition-all duration-300 animate-in fade-in zoom-in slide-in-from-bottom-4"
-              aria-label="Ir al final"
-            >
-              <ArrowDown className="w-5 h-5" />
-            </button>
+            <div className="absolute bottom-32 left-0 right-0 flex justify-center z-20 pointer-events-none">
+              <button
+                onClick={scrollToBottom}
+                className="pointer-events-auto p-2 bg-white/80 backdrop-blur-md border border-gray-100 rounded-full shadow-lg text-[#8b7fa8] hover:bg-white transition-all duration-300 animate-in fade-in zoom-in slide-in-from-bottom-4"
+                aria-label="Ir al final"
+              >
+                <ArrowDown className="w-5 h-5" />
+              </button>
+            </div>
           )}
         </div>
 
         {/* Input de Mensaje - Estilo ChatGPT (Flotante/Sticky) */}
-        <div className="absolute bottom-0 left-0 right-0 px-4 md:px-8 pb-8 bg-gradient-to-t from-[#faf9fb] via-[#faf9fb]/90 to-transparent pt-10 pointer-events-none">
+        <div className="absolute bottom-0 left-0 right-0 px-4 pb-4 md:pb-8 bg-gradient-to-t from-[#faf9fb] via-[#faf9fb]/90 to-transparent pt-10 pointer-events-none">
           <div className="max-w-4xl mx-auto pointer-events-auto">
-            <div className="bg-white border border-gray-100 rounded-[2rem] shadow-2xl p-2 focus-within:ring-4 focus-within:ring-[#8b7fa8]/10 transition-all duration-300">
+            <div className="bg-white border border-gray-100 rounded-[2rem] shadow-2xl p-1.5 md:p-2 focus-within:ring-4 focus-within:ring-[#8b7fa8]/10 transition-all duration-300">
               <form onSubmit={handleSendMessage} className="flex items-center gap-2">
                 <input
                   type="text"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   placeholder="Escribe tu mensaje aquí..."
-                  className="flex-1 bg-transparent border-none px-6 py-4 focus:outline-none text-slate-700 text-base"
+                  className="flex-1 bg-transparent border-none px-4 md:px-6 py-3 md:py-4 focus:outline-none text-slate-700 text-sm md:text-base"
                 />
                 <button 
                   type="submit"
                   className={`
-                    p-4 rounded-2xl transition-all duration-300 flex items-center justify-center
+                    p-3 md:p-4 rounded-2xl transition-all duration-300 flex items-center justify-center
                     ${inputValue.trim() 
                       ? 'bg-[#8b7fa8] text-white hover:bg-[#7a6e97] shadow-lg hover:scale-105 active:scale-95' 
                       : 'bg-slate-50 text-slate-300'
@@ -212,7 +214,7 @@ export default function ChatPage() {
                 </button>
               </form>
             </div>
-            <p className="text-[10px] text-slate-400 text-center mt-3 font-medium uppercase tracking-widest opacity-60">
+            <p className="text-[9px] md:text-[10px] text-slate-400 text-center mt-2 md:mt-3 font-medium uppercase tracking-widest opacity-60 px-4">
               Zephira puede cometer errores. Verifica la información importante.
             </p>
           </div>
