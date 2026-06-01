@@ -62,7 +62,6 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Zephira — Aquí estamos para ti.
           </p>
           <div className="flex gap-6 text-[11px] uppercase tracking-widest font-bold">
-            <span className="hover:text-white cursor-help transition-colors">Seguridad</span>
             <span className="hover:text-white cursor-help transition-colors">Privacidad</span>
             <span className="hover:text-white cursor-help transition-colors">Ayuda</span>
           </div>

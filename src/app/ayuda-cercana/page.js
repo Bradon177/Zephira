@@ -89,7 +89,6 @@ export default function AyudaCercanaPage() {
                   isSelected={selectedLocation.id === loc.id}
                   onClick={(location) => {
                     setSelectedLocation(location);
-                    // En móviles, hacer scroll suave hasta el mapa al seleccionar
                     if (window.innerWidth < 768) {
                       document.getElementById('map-viewport')?.scrollIntoView({ behavior: 'smooth' });
                     }
