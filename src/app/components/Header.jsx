@@ -19,7 +19,6 @@ export default function Header() {
     { name: 'Chat', href: '/chat', icon: MessageCircle },
     { name: 'Ayuda', href: '/ayuda-cercana', icon: MapPin },
     { name: 'Info', href: '/informacion', icon: BookOpen },
-    { name: 'Sistema', href: '/informacion-sistema', icon: Info },
   ];
 
   return (

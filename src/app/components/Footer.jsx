@@ -1,5 +1,6 @@
 import React from 'react'
 import { ExternalLink } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Footer() {
   const nektraUrl = "https://nektrap.vercel.app/dashboard/inicio?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAR9m3VleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAacjm2QMK4zjhIVaW7BoTJ4TihgZgbPfCJ0VjEx4sxUoBAmCYtLf8SCu_OR9Cg_aem_8-PrVev_UDpqyeaogN10Sg";
@@ -62,6 +63,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Zephira — Aquí estamos para ti.
           </p>
           <div className="flex gap-6 text-[11px] uppercase tracking-widest font-bold">
+            <Link href="/informacion-sistema" className="hover:text-white transition-colors">Sistema</Link>
             <span className="hover:text-white cursor-help transition-colors">Privacidad</span>
             <span className="hover:text-white cursor-help transition-colors">Ayuda</span>
           </div>
