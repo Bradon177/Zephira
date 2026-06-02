@@ -64,8 +64,8 @@ export default function Footer() {
           </p>
           <div className="flex gap-6 text-[11px] uppercase tracking-widest font-bold">
             <Link href="/informacion-sistema" className="hover:text-white transition-colors">Sistema</Link>
-            <span className="hover:text-white cursor-help transition-colors">Privacidad</span>
-            <span className="hover:text-white cursor-help transition-colors">Ayuda</span>
+            <Link href="/privacidad" className="hover:text-white cursor-help transition-colors">Privacidad</Link>  
+
           </div>
         </div>
       </div>
