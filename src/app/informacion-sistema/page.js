@@ -4,6 +4,8 @@ import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Card from '../ui/card';
+import FeatureSection from '../ui/FeatureSection';
+import LocationCard from '../ui/LocationCard';
 import { 
   Shield, 
   Zap, 
@@ -15,7 +17,11 @@ import {
   Cpu, 
   Smartphone,
   Info,
-  Server
+  Server,
+  Hand,
+  Search,
+  Send,
+  AlertTriangle
 } from 'lucide-react';
 
 export default function SistemaDocPage() {
@@ -25,148 +31,157 @@ export default function SistemaDocPage() {
       
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 md:px-8 py-12">
         {/* Encabezado de Documentación */}
-        <div className="mb-16 text-center">
+        <div className="mb-24 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#8b7fa8]/10 rounded-full text-[#8b7fa8] text-xs font-bold uppercase tracking-widest mb-6">
             <Info className="w-4 h-4" />
-            Documentación Técnica
+            Guía del Sistema
           </div>
-          <h1 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">
-            Arquitectura de <span className="text-[#8b7fa8]">Zephira</span>
+          <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tight">
+            Descubre <span className="text-[#8b7fa8]">Zephira</span>
           </h1>
           <p className="text-slate-600 max-w-3xl mx-auto text-lg leading-relaxed">
-            Explora el funcionamiento interno, los protocolos de seguridad y la infraestructura tecnológica de la plataforma diseñada para el apoyo social y la protección ciudadana.
+            Entiende cómo cada ventana y módulo del sistema está diseñado para brindarte seguridad, información y apoyo en tiempo real.
           </p>
         </div>
 
-        {/* Pilares del Sistema */}
-        <section className="mb-20">
-          <h2 className="text-2xl font-black text-slate-800 mb-10 flex items-center gap-3">
-            <div className="w-2 h-8 bg-[#8b7fa8] rounded-full" />
-            Pilares Fundamentales
+        {/* Sección 1: El Chat Inteligente */}
+        <FeatureSection 
+          title="Chat de Apoyo"
+          description="Una ventana de comunicación segura donde puedes hablar libremente. La inteligencia artificial está entrenada para escucharte, brindarte guías de actuación y acompañarte sin juicios."
+          icon={MessageCircle}
+          url="chat"
+          features={["Privacidad absoluta", "Respuesta inmediata", "Sesiones anónimas", "Guías de seguridad"]}
+          previewContent={
+            <div className="p-4 space-y-4">
+              <div className="flex justify-start">
+                <div className="bg-white p-3 rounded-2xl rounded-tl-none border border-gray-100 shadow-sm max-w-[80%]">
+                  <p className="text-[10px] text-slate-600">Hola, soy Zephira. Estoy aquí para escucharte y apoyarte. ¿Cómo te sientes hoy?</p>
+                </div>
+              </div>
+              <div className="flex justify-end">
+                <div className="bg-[#8b7fa8] p-3 rounded-2xl rounded-tr-none text-white shadow-md max-w-[80%]">
+                  <p className="text-[10px]">Necesito información sobre qué hacer en caso de emergencia.</p>
+                </div>
+              </div>
+              <div className="absolute bottom-4 left-4 right-4 bg-white rounded-full border border-gray-100 p-2 flex items-center gap-2 shadow-lg">
+                <div className="flex-1 px-3 text-[10px] text-slate-400">Escribe tu mensaje...</div>
+                <div className="w-8 h-8 bg-[#8b7fa8] rounded-full flex items-center justify-center text-white">
+                  <Send className="w-4 h-4" />
+                </div>
+              </div>
+            </div>
+          }
+        />
+
+        {/* Sección 2: Ayuda Cercana */}
+        <FeatureSection 
+          title="Ayuda Cercana"
+          description="Un localizador dinámico de instituciones de apoyo. Encuentra fiscalías, estaciones de policía y centros del ICBF cercanos a tu ubicación actual para recibir atención presencial."
+          icon={MapIcon}
+          url="ayuda-cercana"
+          reversed={true}
+          features={["Mapas interactivos", "Información de contacto", "Filtros rápidos", "Sin rastreo de GPS"]}
+          previewContent={
+            <div className="flex h-full">
+              <div className="w-1/3 bg-white border-r border-gray-100 p-2 space-y-2">
+                <div className="p-2 bg-[#8b7fa8]/5 rounded-lg border border-[#8b7fa8]/20">
+                  <div className="w-8 h-2 bg-[#8b7fa8]/30 rounded-full mb-1" />
+                  <div className="w-full h-3 bg-[#8b7fa8]/10 rounded-sm" />
+                </div>
+                <div className="p-2 bg-slate-50 rounded-lg border border-transparent">
+                  <div className="w-8 h-2 bg-slate-200 rounded-full mb-1" />
+                  <div className="w-full h-3 bg-slate-100 rounded-sm" />
+                </div>
+              </div>
+              <div className="flex-1 bg-slate-200 relative">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <MapIcon className="w-12 h-12 text-slate-400 opacity-20" />
+                </div>
+                <div className="absolute bottom-4 left-4 bg-white/90 p-2 rounded-lg shadow-xl max-w-[120px]">
+                  <div className="w-full h-2 bg-slate-200 rounded-full mb-1" />
+                  <div className="w-2/3 h-1.5 bg-slate-100 rounded-full" />
+                </div>
+              </div>
+            </div>
+          }
+        />
+
+        {/* Sección 3: Educación e Información */}
+        <FeatureSection 
+          title="Centro de Aprendizaje"
+          description="Información detallada para identificar los diferentes tipos de violencia. Aprender a reconocer las señales de alerta es el primer paso fundamental para la prevención y la búsqueda de ayuda."
+          icon={Hand}
+          url="informacion"
+          features={["Tipos de violencia", "Señales de alerta", "Contenido educativo", "Diseño visual claro"]}
+          previewContent={
+            <div className="p-6 grid grid-cols-2 gap-3">
+              <div className="bg-white p-4 rounded-3xl border border-gray-100 shadow-sm">
+                <Hand className="w-6 h-6 text-rose-500 mb-2" />
+                <div className="w-full h-2 bg-slate-100 rounded-full mb-1" />
+                <div className="w-2/3 h-2 bg-slate-50 rounded-full" />
+              </div>
+              <div className="bg-white p-4 rounded-3xl border border-gray-100 shadow-sm">
+                <AlertTriangle className="w-6 h-6 text-amber-500 mb-2" />
+                <div className="w-full h-2 bg-slate-100 rounded-full mb-1" />
+                <div className="w-2/3 h-2 bg-slate-50 rounded-full" />
+              </div>
+              <div className="col-span-2 bg-[#8b7fa8]/5 p-4 rounded-3xl border border-[#8b7fa8]/10">
+                <div className="w-1/3 h-3 bg-[#8b7fa8]/20 rounded-full mb-3" />
+                <div className="space-y-2">
+                  <div className="w-full h-1.5 bg-[#8b7fa8]/5 rounded-full" />
+                  <div className="w-full h-1.5 bg-[#8b7fa8]/5 rounded-full" />
+                  <div className="w-full h-1.5 bg-[#8b7fa8]/5 rounded-full" />
+                </div>
+              </div>
+            </div>
+          }
+        />
+
+        {/* Protocolos de Seguridad (Resumen Técnico) */}
+        <section className="mt-32">
+          <h2 className="text-3xl font-black text-slate-800 mb-12 flex items-center gap-4">
+            <div className="p-2 bg-[#d97373]/10 rounded-xl">
+              <Shield className="w-6 h-6 text-[#d97373]" />
+            </div>
+            Protocolos de Seguridad Activa
           </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card color="purple" icon={Shield} title="Seguridad Crítica" description="Sistemas de escape inmediato y ocultamiento de interfaz ante situaciones de riesgo.">
-              <Card.Content>
-                <ul className="text-xs text-slate-500 space-y-2 mt-2">
-                  <li>• Panic Button (Esc Key)</li>
-                  <li>• Safe Mode (Google Mimicry)</li>
-                  <li>• Doble Tap Restoration</li>
-                </ul>
-              </Card.Content>
-            </Card>
-            <Card color="blue" icon={Lock} title="Privacidad Total" description="Arquitectura Zero-Knowledge que garantiza el anonimato absoluto de las víctimas.">
-              <Card.Content>
-                <ul className="text-xs text-slate-500 space-y-2 mt-2">
-                  <li>• No-Logs Policy</li>
-                  <li>• Sesiones efímeras</li>
-                  <li>• Encriptación End-to-End</li>
-                </ul>
-              </Card.Content>
-            </Card>
-            <Card color="red" icon={Zap} title="Respuesta Inmediata" description="Conexión directa con autoridades y canales de apoyo en tiempo real.">
-              <Card.Content>
-                <ul className="text-xs text-slate-500 space-y-2 mt-2">
-                  <li>• Chat n8n Automatizado</li>
-                  <li>• Geocalización de Fiscalía</li>
-                  <li>• Acceso 24/7</li>
-                </ul>
-              </Card.Content>
-            </Card>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-[#1e1b22] p-10 rounded-[3rem] text-white shadow-2xl relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#d97373]/10 rounded-full -mr-16 -mt-16 group-hover:scale-110 transition-transform" />
+              <Zap className="w-10 h-10 text-[#d97373] mb-6" />
+              <h4 className="text-xl font-black mb-4">Modo Pánico Inmediato</h4>
+              <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                Presionando el botón <strong>SALIR RÁPIDO</strong> o la tecla <strong>ESC</strong>, el sistema oculta todo el contenido real y abre Google.com en una nueva pestaña.
+              </p>
+              <div className="flex gap-2">
+                <span className="px-3 py-1 bg-white/5 rounded-full text-[10px] font-bold border border-white/10 uppercase tracking-widest">Tecla ESC</span>
+                <span className="px-3 py-1 bg-white/5 rounded-full text-[10px] font-bold border border-white/10 uppercase tracking-widest">Auto-Mimicry</span>
+              </div>
+            </div>
+
+            <div className="bg-white p-10 rounded-[3rem] border border-gray-100 shadow-xl relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#8b7fa8]/5 rounded-full -mr-16 -mt-16 group-hover:scale-110 transition-transform" />
+              <Eye className="w-10 h-10 text-[#8b7fa8] mb-6" />
+              <h4 className="text-xl font-black text-slate-900 mb-4">Privacidad Zero-Knowledge</h4>
+              <p className="text-slate-500 text-sm leading-relaxed mb-6">
+                No almacenamos historiales, cookies persistentes ni direcciones IP vinculadas a la actividad. Cada sesión es única y desaparece al cerrar la ventana.
+              </p>
+              <div className="flex gap-2">
+                <span className="px-3 py-1 bg-slate-50 rounded-full text-[10px] font-bold border border-slate-100 uppercase tracking-widest text-[#8b7fa8]">No Logs</span>
+                <span className="px-3 py-1 bg-slate-50 rounded-full text-[10px] font-bold border border-slate-100 uppercase tracking-widest text-[#8b7fa8]">Encrypted</span>
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* Detalles Técnicos */}
-        <div className="grid lg:grid-cols-2 gap-12 mb-20">
-          <div className="space-y-8">
-            <h2 className="text-2xl font-black text-slate-800 flex items-center gap-3">
-              <Code2 className="w-7 h-7 text-[#8b7fa8]" />
-              Stack Tecnológico
-            </h2>
-            
-            <div className="bg-white p-8 rounded-[2.5rem] border border-gray-100 shadow-xl space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-slate-50 rounded-2xl text-slate-600">
-                  <Cpu className="w-6 h-6" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-slate-900">Framework & Frontend</h4>
-                  <p className="text-sm text-slate-500 mt-1">Construido sobre Next.js (App Router) para máxima velocidad y SEO optimizado. Estilado con Tailwind CSS 4 para una UI ligera y responsiva.</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-slate-50 rounded-2xl text-slate-600">
-                  <Server className="w-6 h-6" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-slate-900">Backend & IA</h4>
-                  <p className="text-sm text-slate-500 mt-1">Integración con n8n para flujos de trabajo inteligentes y procesamiento de lenguaje natural en el chat de apoyo.</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-slate-50 rounded-2xl text-slate-600">
-                  <Smartphone className="w-6 h-6" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-slate-900">UX Adaptativo</h4>
-                  <p className="text-sm text-slate-500 mt-1">Diseño Mobile-First con optimización de gestos táctiles (touch-action) para sistemas de seguridad en smartphones.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="space-y-8">
-            <h2 className="text-2xl font-black text-slate-800 flex items-center gap-3">
-              <Eye className="w-7 h-7 text-[#8b7fa8]" />
-              Sistemas de Seguridad
-            </h2>
-            
-            <div className="bg-[#1e1b22] p-8 rounded-[2.5rem] text-white shadow-2xl space-y-6">
-              <div className="p-5 bg-white/5 rounded-2xl border border-white/10">
-                <h4 className="font-bold text-[#8b7fa8] mb-2 flex items-center gap-2">
-                  <Zap className="w-4 h-4" /> Modo Pánico
-                </h4>
-                <p className="text-xs text-gray-400 leading-relaxed">
-                  Al activar la tecla <code>Escape</code> o el botón de <code>Salir Rápido</code>, el sistema dispara un evento global <code>zephira-panic</code>. Esto oculta instantáneamente el contenido real bajo una interfaz falsa de Google y abre una pestaña neutral.
-                </p>
-              </div>
-
-              <div className="p-5 bg-white/5 rounded-2xl border border-white/10">
-                <h4 className="font-bold text-[#8b7fa8] mb-2 flex items-center gap-2">
-                  <MessageCircle className="w-4 h-4" /> Flujo del Chat
-                </h4>
-                <p className="text-xs text-gray-400 leading-relaxed">
-                  Utiliza una arquitectura de sesiones efímeras (Session IDs basados en timestamp) que se limpian automáticamente. Los mensajes se procesan a través de webhooks seguros hacia instancias privadas de n8n.
-                </p>
-              </div>
-
-              <div className="p-5 bg-white/5 rounded-2xl border border-white/10">
-                <h4 className="font-bold text-[#8b7fa8] mb-2 flex items-center gap-2">
-                  <MapIcon className="w-4 h-4" /> Geolocalización Segura
-                </h4>
-                <p className="text-xs text-gray-400 leading-relaxed">
-                  El sistema de mapas utiliza iframes de Google Maps / OpenStreetMap cargados bajo demanda, asegurando que la ubicación del usuario solo sea procesada por el proveedor del mapa y no almacenada en nuestros servidores.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Sección de Marca */}
-        <section className="bg-white border border-gray-100 rounded-[3rem] p-10 md:p-16 shadow-sm text-center">
-          <h2 className="text-2xl font-black text-slate-900 mb-4">Desarrollado con Propósito</h2>
-          <p className="text-slate-500 max-w-2xl mx-auto mb-8">
-            Zephira es un proyecto de innovación social creado por **Nektra**, enfocado en utilizar la tecnología como una herramienta de protección y empoderamiento.
+        {/* Sección de Marca Final */}
+        <section className="mt-32 bg-[#faf9fb] border-2 border-dashed border-[#8b7fa8]/20 rounded-[4rem] p-12 text-center">
+          <img src="/logo.png" alt="Zephira Logo" className="h-16 mx-auto mb-8 object-contain" />
+          <h2 className="text-2xl font-black text-slate-900 mb-4">Innovación al Servicio de la Vida</h2>
+          <p className="text-slate-500 max-w-xl mx-auto">
+            Zephira no es solo software, es un compromiso con la seguridad y el apoyo social desarrollado por <strong>Nektra</strong>.
           </p>
-          <div className="flex justify-center gap-4">
-            <div className="px-6 py-3 bg-slate-50 rounded-2xl text-xs font-bold text-slate-400 uppercase tracking-widest border border-slate-100">
-              Open Source
-            </div>
-            <div className="px-6 py-3 bg-slate-50 rounded-2xl text-xs font-bold text-slate-400 uppercase tracking-widest border border-slate-100">
-              Social Impact
-            </div>
-          </div>
         </section>
       </main>
 
