@@ -25,15 +25,15 @@ export default function Home() {
 
       {/* Panel de Ayuda Inmediata - LO PRIMERO Y MÁS VISIBLE */}
       <section className="bg-white border-b border-gray-100/80">
-        <div className="max-w-4xl mx-auto px-6 py-16">
-          <div className="text-center mb-10">
-            <h1 className="mb-4 text-slate-900 text-3xl md:text-4xl font-bold tracking-tight">¿Necesitas ayuda ahora?</h1>
-            <p className="text-slate-600 text-lg max-w-2xl mx-auto leading-relaxed">
+        <div className="max-w-4xl mx-auto px-6 py-10 md:py-16">
+          <div className="text-center mb-8 md:mb-10">
+            <h1 className="mb-4 text-slate-900 text-2xl md:text-4xl font-bold tracking-tight">¿Necesitas ayuda ahora?</h1>
+            <p className="text-slate-600 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
               Si estás en peligro o necesitas hablar con alguien de inmediato, estamos aquí para ti. Usa uno de estos botones seguros.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-3xl mx-auto">
             {/* Card de Emergencia Centrada */}
             <Card 
               variant="emergency"
@@ -49,7 +49,7 @@ export default function Home() {
                 variant="primary"
                 color="red"
                 title="Llamar al 123"
-                className="mt-4 bg-white !text-[#b91c1c] hover:bg-[#fef2f2] hover:shadow-lg hover:-translate-y-1 active:scale-95 transition-all duration-300"
+                className="mt-4 bg-white !text-[#b91c1c] hover:bg-[#fef2f2] hover:shadow-lg hover:-translate-y-1 active:scale-95 transition-all duration-300 w-full md:w-auto"
               />
             </Card>
 
@@ -68,7 +68,7 @@ export default function Home() {
                   variant="primary"
                   color="blue"
                   title="Iniciar Chat"
-                  className="mt-4 bg-white !text-[#88b0c4]  hover:bg-[#f2f9ff] hover:shadow-lg hover:-translate-y-1 active:scale-95 transition-all duration-300"
+                  className="mt-4 bg-white !text-[#88b0c4]  hover:bg-[#f2f9ff] hover:shadow-lg hover:-translate-y-1 active:scale-95 transition-all duration-300 w-full"
                 />
               </Link>
             </Card>
@@ -77,16 +77,16 @@ export default function Home() {
       </section>
 
       {/* Sección "¿No es una emergencia?" */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <div className="text-center mb-16">
-          <h2 className="mb-4 text-slate-900 text-2xl md:text-3xl font-bold">Si no es una emergencia</h2>
-          <p className="text-slate-600 text-lg max-w-2xl mx-auto leading-relaxed">
+      <section className="max-w-7xl mx-auto px-6 py-12 md:py-20 pb-32 lg:pb-20">
+        <div className="text-center mb-10 md:mb-16">
+          <h2 className="mb-4 text-slate-900 text-xl md:text-3xl font-bold">Si no es una emergencia</h2>
+          <p className="text-slate-600 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
             Explora nuestros recursos, encuentra información o lee sobre cómo podemos acompañarte en este proceso.
           </p>
         </div>
 
         {/* Opciones claras y directas usando el componente Card */}
-        <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto place-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-3xl mx-auto place-items-center">
           {/* Opción 1: Recursos */}
           <Card 
             color="purple"

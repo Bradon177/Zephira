@@ -29,17 +29,17 @@ export default function SistemaDocPage() {
     <div className="min-h-screen bg-[#faf9fb] flex flex-col font-sans">
       <Header />
       
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 md:px-8 py-12">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 md:px-8 py-10 md:py-12 pb-32 lg:pb-12">
         {/* Encabezado de Documentación */}
-        <div className="mb-24 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#8b7fa8]/10 rounded-full text-[#8b7fa8] text-xs font-bold uppercase tracking-widest mb-6">
+        <div className="mb-12 md:mb-24 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#8b7fa8]/10 rounded-full text-[#8b7fa8] text-[10px] md:text-xs font-bold uppercase tracking-widest mb-6">
             <Info className="w-4 h-4" />
             Guía del Sistema
           </div>
-          <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tight">
+          <h1 className="text-3xl md:text-6xl font-black text-slate-900 mb-6 tracking-tight">
             Descubre <span className="text-[#8b7fa8]">Zephira</span>
           </h1>
-          <p className="text-slate-600 max-w-3xl mx-auto text-lg leading-relaxed">
+          <p className="text-slate-600 max-w-3xl mx-auto text-base md:text-lg leading-relaxed">
             Entiende cómo cada ventana y módulo del sistema está diseñado para brindarte seguridad, información y apoyo en tiempo real.
           </p>
         </div>

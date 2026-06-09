@@ -66,7 +66,6 @@ body {
 /* Tablas con estilo Zephira */
 .prose table {
   width: 100%;
-  min-width: 500px; /* Asegura que la tabla no se colapse demasiado */
   border-collapse: collapse;
   margin: 1rem 0;
   font-size: 0.875rem;
@@ -74,6 +73,9 @@ body {
   border-radius: 0.75rem;
   overflow: hidden;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
 .prose th {

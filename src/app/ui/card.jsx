@@ -59,8 +59,8 @@ export default function Card({
   const activeStyle = styles[color] || styles.purple
   
   const baseClasses = variant === 'emergency' 
-    ? `${activeStyle.emergencyBg} p-8 border-none shadow-sm hover:shadow-md`
-    : `bg-white p-6 border border-gray-200/50 ${activeStyle.border} hover:shadow-sm`
+    ? `${activeStyle.emergencyBg} p-6 md:p-8 border-none shadow-sm hover:shadow-md`
+    : `bg-white p-5 md:p-6 border border-gray-200/50 ${activeStyle.border} hover:shadow-sm`
 
   const alignmentClasses = centered 
     ? 'flex flex-col items-center text-center' 

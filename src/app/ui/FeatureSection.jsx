@@ -13,25 +13,25 @@ export default function FeatureSection({
   reversed = false 
 }) {
   return (
-    <div className={`flex flex-col lg:flex-row gap-12 items-center mb-24 ${reversed ? 'lg:flex-row-reverse' : ''}`}>
+    <div className={`flex flex-col lg:flex-row gap-8 md:gap-12 items-center mb-16 md:mb-24 ${reversed ? 'lg:flex-row-reverse' : ''}`}>
       {/* Explicación del Usuario */}
-      <div className="flex-1 space-y-6">
-        <div className="flex items-center gap-4">
-          <div className="p-3 bg-[#8b7fa8]/10 rounded-2xl text-[#8b7fa8]">
-            <Icon className="w-8 h-8" />
+      <div className="flex-1 space-y-4 md:space-y-6">
+        <div className="flex items-center gap-3 md:gap-4">
+          <div className="p-2 md:p-3 bg-[#8b7fa8]/10 rounded-xl md:rounded-2xl text-[#8b7fa8]">
+            <Icon className="w-6 h-6 md:w-8 md:h-8" />
           </div>
-          <h3 className="text-3xl font-black text-slate-900 tracking-tight">{title}</h3>
+          <h3 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight">{title}</h3>
         </div>
         
-        <p className="text-slate-600 text-lg leading-relaxed">
+        <p className="text-slate-600 text-base md:text-lg leading-relaxed">
           {description}
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
           {features.map((f, i) => (
-            <div key={i} className="flex items-center gap-3 p-4 bg-white border border-gray-100 rounded-2xl shadow-sm">
-              <div className="w-2 h-2 bg-[#8b7fa8] rounded-full shrink-0" />
-              <span className="text-sm font-bold text-slate-700">{f}</span>
+            <div key={i} className="flex items-center gap-3 p-3 md:p-4 bg-white border border-gray-100 rounded-xl md:rounded-2xl shadow-sm">
+              <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-[#8b7fa8] rounded-full shrink-0" />
+              <span className="text-xs md:text-sm font-bold text-slate-700">{f}</span>
             </div>
           ))}
         </div>

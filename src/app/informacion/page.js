@@ -9,23 +9,23 @@ export default function page() {
   return (
     <div className="min-h-screen bg-[#faf9fb]">
       <Header />
-      <section className="bg-white border-b border-gray-200/50 py-12">
+      <section className="bg-white border-b border-gray-200/50 py-10 md:py-12">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h1 className="text-4xl font-bold mb-4 text-gray-800">Aprende sobre la violencia de género</h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">Aprende sobre la violencia de género</h1>
+          <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
             Conocer las señales de alerta y entender los tipos de violencia es el primer paso para protegerte o ayudar a alguien más
           </p>
         </div>
       </section>
 
       {/* Tipos de Violencia */}
-      <section className="max-w-6xl mx-auto px-6 py-12">
+      <section className="max-w-6xl mx-auto px-6 py-10 md:py-12 pb-32 md:pb-12">
         <div className="mb-8">
-          <h2 className="mb-3 text-gray-800">Tipos de violencia de género</h2>
-          <p className="text-gray-600">La violencia puede manifestarse de muchas formas. No siempre es física.</p>
+          <h2 className="text-xl md:text-2xl mb-3 text-gray-800 font-bold">Tipos de violencia de género</h2>
+          <p className="text-sm md:text-base text-gray-600">La violencia puede manifestarse de muchas formas. No siempre es física.</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {/* Violencia Física */}
           <Card 
             color="red"
