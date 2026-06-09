@@ -1,14 +1,23 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Header from "./components/Header";
 import Button from "./ui/button";
 import Card from "./ui/card";
 import Footer from "./components/Footer";
 import Link from "next/link";
+import EmergencyModal from "./components/EmergencyModal";
 import { Shield, LogOut, Phone, MessageCircle, BookOpen, ChevronRight, MapPin, Lock, Heart, Users, AlertCircle } from "lucide-react";
 
 export default function Home() {
+  const [isEmergencyModalOpen, setIsEmergencyModalOpen] = useState(false);
+
+  const handleEmergencyCall = () => {
+    window.location.href = "tel:123";
+    setIsEmergencyModalOpen(false);
+  };
+
   return (
        <div className="min-h-screen bg-[#faf9fb]">
       {/* Header minimalista con salida rápida */}
@@ -34,6 +43,7 @@ export default function Home() {
               description="Si estás en peligro inmediato, usa esta línea disponible 24/7"
               centered={true}
               className="h-full"
+              onClick={() => setIsEmergencyModalOpen(true)}
             >
               <Button 
                 variant="primary"
@@ -103,6 +113,12 @@ export default function Home() {
 
       {/* Footer simple */}
       <Footer />
+      
+      <EmergencyModal 
+        isOpen={isEmergencyModalOpen}
+        onClose={() => setIsEmergencyModalOpen(false)}
+        onConfirm={handleEmergencyCall}
+      />
     </div>
   );
 }

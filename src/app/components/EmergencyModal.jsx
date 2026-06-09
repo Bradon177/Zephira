@@ -5,6 +5,24 @@ import { Phone, X, ShieldAlert } from 'lucide-react';
 
 export default function EmergencyModal({ isOpen, onClose, onConfirm }) {
   const [countdown, setCountdown] = useState(3);
+  const [shouldRender, setShouldRender] = useState(isOpen);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      setShouldRender(true);
+      // Pequeño delay para que la animación de entrada se active
+      setTimeout(() => setIsAnimating(true), 10);
+      setCountdown(3);
+    } else {
+      setIsAnimating(false);
+      // Esperar a que termine la animación de salida (500ms según duration-500)
+      const timer = setTimeout(() => {
+        setShouldRender(false);
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [isOpen]);
 
   useEffect(() => {
     let timer;
@@ -19,25 +37,24 @@ export default function EmergencyModal({ isOpen, onClose, onConfirm }) {
     return () => clearInterval(timer);
   }, [isOpen, countdown, onConfirm]);
 
-  // Resetear el contador cuando se abre el modal
-  useEffect(() => {
-    if (isOpen) {
-      setCountdown(3);
-    }
-  }, [isOpen]);
-
-  if (!isOpen) return null;
+  if (!shouldRender) return null;
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
       {/* Backdrop con desenfoque */}
       <div 
-        className="absolute inset-0 bg-[#1e1b22]/80 backdrop-blur-md animate-in fade-in duration-300"
+        className={`absolute inset-0 bg-[#1e1b22]/80 backdrop-blur-md transition-opacity duration-500 ${
+          isAnimating ? 'opacity-100' : 'opacity-0'
+        }`}
         onClick={onClose}
       />
       
       {/* Contenido del Modal */}
-      <div className="relative bg-white w-full max-w-sm rounded-[3rem] p-8 shadow-2xl border border-gray-100 animate-in zoom-in slide-in-from-bottom-8 duration-500">
+      <div className={`relative bg-white w-full max-w-sm rounded-[3rem] p-8 shadow-2xl border border-gray-100 transition-all duration-500 transform ${
+        isAnimating 
+          ? 'scale-100 opacity-100 translate-y-0' 
+          : 'scale-95 opacity-0 translate-y-8'
+      }`}>
         <button 
           onClick={onClose}
           className="absolute top-6 right-6 p-2 bg-slate-50 hover:bg-slate-100 rounded-full text-slate-400 transition-colors"
