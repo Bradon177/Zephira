@@ -26,7 +26,7 @@ export default function Header() {
       <header className="bg-white/80 backdrop-blur-xl border-b border-gray-100 sticky top-0 z-50 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-3 flex justify-between items-center">
           {/* Logo - Siempre a la izquierda */}
-          <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
+          <Link href="/" className="flex items-center hover:opacity-90 transition-opacity">
             <img 
               src="/logo.png" 
               alt="Zephira Logo" 
