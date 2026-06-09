@@ -88,7 +88,7 @@ export default function Card({
       {title && <h3 className={`mb-2 font-semibold ${titleClasses}`}>{title}</h3>}
       {description && <p className={`text-sm mb-3 ${descClasses}`}>{description}</p>}
       
-      {children && <div className="w-full">{children}</div>}
+      {children && <div className={`w-full ${centered ? 'flex flex-col items-center' : ''}`}>{children}</div>}
 
       {footer && (
         <span className={`${footerClasses} text-sm flex items-center gap-1 mt-auto pt-4`}>

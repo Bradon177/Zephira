@@ -49,7 +49,7 @@ export default function Home() {
                 variant="primary"
                 color="red"
                 title="Llamar al 123"
-                className="mt-4 bg-white !text-[#b91c1c] hover:bg-[#fef2f2] hover:shadow-lg hover:-translate-y-1 active:scale-95 transition-all duration-300 w-full md:w-auto"
+                className="mt-4 bg-white !text-[#b91c1c] hover:bg-[#fef2f2] hover:shadow-lg hover:-translate-y-1 active:scale-95 transition-all duration-300 w-full"
               />
             </Card>
 
