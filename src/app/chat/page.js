@@ -50,9 +50,10 @@ export default function ChatPage() {
 
   const handleSendMessage = async (e) => {
     e.preventDefault();
-    if (!inputValue.trim() || isLoading) return;
+    const sanitizedInput = inputValue.trim().replace(/[<>]/g, ''); // Sanitización básica
+    if (!sanitizedInput || isLoading) return;
 
-    const userMessage = inputValue;
+    const userMessage = sanitizedInput;
     const newMessage = {
       id: Date.now(),
       text: userMessage,
