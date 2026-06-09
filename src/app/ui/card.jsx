@@ -15,7 +15,7 @@ export default function Card({
   onClick,
   className = "" 
 }) {
-  const Component = onClick ? 'button' : 'div'
+  const Component = onClick ? 'div' : 'div'
   
   // Mapeo de colores y estilos
   const styles = {
@@ -75,7 +75,7 @@ export default function Card({
   const footerClasses = variant === 'emergency' ? 'text-white/80' : activeStyle.actionText
 
   return (
-    <Component 
+    <div 
       onClick={onClick}
       className={`${baseClasses} ${alignmentClasses} rounded-2xl transition-all group w-full ${onClick ? 'cursor-pointer' : ''} ${className}`}
     >
@@ -95,7 +95,7 @@ export default function Card({
           {footer} {variant !== 'emergency' && <ChevronRight className="w-4 h-4" />}
         </span>
       )}
-    </Component>
+    </div>
   )
 }
 
