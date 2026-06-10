@@ -1,13 +1,16 @@
 import { NextResponse } from 'next/server';
 
+// Dify API documentation: https://docs.dify.ai/api-reference/chat-messages
+const DIFY_API_URL = 'https://api.dify.ai/v1';
+
 export async function POST(request) {
-  const n8nWebhookUrl = process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL;
+  const difyApiKey = process.env.DIFY_API_KEY;
 
-  console.log('API Route Request (POST to n8n)');
+  console.log('API Route Request (POST to Dify)');
 
-  if (!n8nWebhookUrl) {
+  if (!difyApiKey) {
     return NextResponse.json(
-      { error: 'N8N Webhook URL is not configured' },
+      { error: 'Dify API Key is not configured' },
       { status: 500 }
     );
   }
@@ -16,27 +19,38 @@ export async function POST(request) {
     const body = await request.json();
     const { message, sessionId } = body;
 
-    const response = await fetch(n8nWebhookUrl, {
+    // Preparamos el payload según la documentación de Dify
+    const payload = {
+      inputs: {},
+      query: message,
+      response_mode: "blocking",
+      conversation_id: "", // Debe estar presente pero vacío para la primera solicitud
+      user: sessionId,
+      files: []
+    };
+
+    const response = await fetch(`${DIFY_API_URL}/chat-messages`, {
       method: 'POST', 
       headers: {
+        'Authorization': `Bearer ${difyApiKey}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ message, sessionId }),
+      body: JSON.stringify(payload),
     });
 
-    console.log('n8n response status:', response.status);
+    console.log('Dify response status:', response.status);
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error('n8n error response:', errorText);
+      console.error('Dify error response:', errorText);
       return NextResponse.json(
-        { error: `Error from n8n service: ${response.status}`, details: errorText },
+        { error: `Error from Dify service: ${response.status}`, details: errorText },
         { status: response.status }
       );
     }
 
     const data = await response.json();
-    console.log('n8n success response data:', JSON.stringify(data, null, 2));
+    console.log('Dify success response data:', JSON.stringify(data, null, 2));
     return NextResponse.json(data);
   } catch (error) {
     console.error('Detailed API Route Error:', error);

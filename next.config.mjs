@@ -7,10 +7,6 @@ const nextConfig = {
         source: '/(.*)',
         headers: [
           {
-            key: 'X-Frame-Options',
-            value: 'DENY',
-          },
-          {
             key: 'X-Content-Type-Options',
             value: 'nosniff',
           },
@@ -24,11 +20,11 @@ const nextConfig = {
           },
           {
             key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=()',
+            value: 'camera=(), microphone=(self "https://udify.app"), geolocation=()',
           },
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://*.google.com https://*.gstatic.com; frame-src 'self' https://*.google.com https://*.openstreetmap.org; connect-src 'self' https://*.n8n.cloud https://*.n8n.io;",
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://*.google.com https://*.gstatic.com; frame-src 'self' https://*.google.com https://*.openstreetmap.org https://udify.app; connect-src 'self' https://*.n8n.cloud https://*.n8n.io;",
           }
         ],
       },
